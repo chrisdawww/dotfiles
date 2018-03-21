@@ -12,7 +12,7 @@ set expandtab
 
 " Show linenumbers
 set number
-set relativenumber
+" set relativenumber
 
 " Colorscheme
 colors zenburn
@@ -24,9 +24,21 @@ Plug 'vim-syntastic/syntastic'
 
 call plug#end()
 
+let g:syntastic_mode_map = {
+            \ "mode": "active",
+            \ "passive_filetypes": ["s", "asm"] }
+
 " Highlight the 80th column
 set cc=80
 highlight ColorColumn ctermbg=darkblue
+
+"Highlight tabs and extra whitespace
+highlight LiteralTabs ctermbg=darkgreen guibg=darkgreen
+match LiteralTabs /\s /
+highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
+match ExtraWhitespace /\s\+$/
+
+let @w = ':%s/\s\+$//e'
 
 " Disable .swp and backup files
 set nobackup
