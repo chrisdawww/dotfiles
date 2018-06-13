@@ -6,6 +6,7 @@ alias sshconfig="vim ~/.ssh/config"
 alias ls="ls --color=auto"
 alias la="ls -la"
 alias woman="man"
+alias cd..="cd .."
 
 # Tmux resurrect and continuum extra session workaround
 # If there exists a tmux session called "0", zsh will

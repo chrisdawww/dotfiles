@@ -21,6 +21,7 @@ colors zenburn
 call plug#begin('~/.vim')
 
 Plug 'vim-syntastic/syntastic'
+Plug 'https://github.com/rodjek/vim-puppet.git'
 
 call plug#end()
 
