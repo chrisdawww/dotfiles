@@ -1,9 +1,16 @@
 filetype plugin indent on
 
-" Preferences
+"  ____            __
+" |  _ \ _ __ ___ / _| ___ _ __ ___ _ __   ___ ___  ___
+" | |_) | '__/ _ \ |_ / _ \ '__/ _ \ '_ \ / __/ _ \/ __|
+" |  __/| | |  __/  _|  __/ | |  __/ | | | (_|  __/\__ \
+" |_|   |_|  \___|_|  \___|_|  \___|_| |_|\___\___||___/
 
 " Syntax hilighting
 syntax on
+
+" fzf Fuzzy finder
+set rtp+=~/.fzf
 
 " 4 spaces for tabs
 set tabstop=4
@@ -17,19 +24,8 @@ set number
 " Colorscheme
 colors zenburn
 
-" Plugins
-call plug#begin('~/.vim')
-
-Plug 'vim-syntastic/syntastic'
-Plug 'https://github.com/rodjek/vim-puppet.git'
-
-call plug#end()
-
-let g:syntastic_mode_map = {
-            \ "mode": "active",
-            \ "passive_filetypes": ["s", "asm"] }
-
 " Highlight the 80th column
+set cursorline
 set cc=80
 highlight ColorColumn ctermbg=darkblue
 
@@ -46,16 +42,28 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Python syntax checker
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_python_checkers = ['pyflakes', 'python']
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
 " Allow write of read-only files
 cmap w!! w !sudo tee > /dev/null %
+
+" vim-sensible changes I liked
+set laststatus=0
+set backspace=indent,eol,start
+set incsearch
+set scrolloff=2
+set smarttab
+
+let g:ale_python_pylint_options = '--rcfile ~/.dotfiles/.pylintrc'
+
+" ____  _             _
+"|  _ \| |_   _  __ _(_)_ __  ___
+"| |_) | | | | |/ _` | | '_ \/ __|
+"|  __/| | |_| | (_| | | | | \__ \
+"|_|   |_|\__,_|\__, |_|_| |_|___/
+               "|___/
+call plug#begin()
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'dense-analysis/ale'
+Plug 'yggdroot/indentline'
+
+call plug#end()

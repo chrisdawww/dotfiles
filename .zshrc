@@ -1,3 +1,5 @@
+eval $(ssh-agent)
+
 # Aliases
 alias zshconfig="vim ~/.zshrc"
 alias tmuxconfig="vim ~/.tmux.conf"
@@ -7,6 +9,21 @@ alias ls="ls --color=auto"
 alias la="ls -la"
 alias woman="man"
 alias cd..="cd .."
+
+# Fuzzy finder function FFF
+function fim {
+    vim $(fzf)
+}
+
+# Install vim-plug
+function pluginstall {
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+}
+
+# Update $PATH
+export PATH=$PATH:/ifs/home/cdaw/scripity-scripts/bin
+export SCRIPITY=/ifs/home/cdaw/.scripts
 
 # Tmux resurrect and continuum extra session workaround
 # If there exists a tmux session called "0", zsh will
@@ -62,3 +79,5 @@ if [ -f '/home/dawc/Documents/google-cloud-sdk/path.zsh.inc' ]; then source '/ho
 if [ -f '/home/dawc/Documents/google-cloud-sdk/completion.zsh.inc' ]; then source '/home/dawc/Documents/google-cloud-sdk/completion.zsh.inc'; fi
 
 cd
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
