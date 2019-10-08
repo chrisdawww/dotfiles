@@ -13,9 +13,9 @@ syntax on
 set rtp+=~/.fzf
 
 " 4 spaces for tabs
-set tabstop=4
-set shiftwidth=4
-set expandtab
+"set tabstop=4
+"set shiftwidth=4
+"set expandtab
 
 " Show linenumbers
 set number
@@ -36,6 +36,9 @@ highlight ExtraWhitespace ctermbg=darkgreen guibg=darkgreen
 match ExtraWhitespace /\s\+$/
 
 let @w = ':%s/\s\+$//e'
+
+" Map kpl syntax higlight enable to <F1> for CSCI 509
+map <F1> :setf kpl<CR>:set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>
 
 " Disable .swp and backup files
 set nobackup
@@ -62,8 +65,8 @@ let g:ale_python_pylint_options = '--rcfile ~/.dotfiles/.pylintrc'
                "|___/
 call plug#begin()
 
-Plug 'scrooloose/nerdcommenter'
-Plug 'dense-analysis/ale'
-Plug 'yggdroot/indentline'
+"Plug 'scrooloose/nerdcommenter'
+"Plug 'dense-analysis/ale'
+"Plug 'yggdroot/indentline'
 
 call plug#end()

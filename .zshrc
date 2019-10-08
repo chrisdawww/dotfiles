@@ -21,18 +21,8 @@ function pluginstall {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-# Update $PATH
-export PATH=$PATH:/ifs/home/cdaw/scripity-scripts/bin
-export SCRIPITY=/ifs/home/cdaw/.scripts
-
-# Tmux resurrect and continuum extra session workaround
-# If there exists a tmux session called "0", zsh will
-# run a script to kill it and all other numbered sessions.
-# To get around this if you want more than one tmux session,
-# run the command `tmux new-session -t sessionname`
-if [[ `tmux list-sessions | awk '{print $1}'` =~ '[0-9]+:' ]] ; then
-    bash ~/.killsession0.sh
-fi
+# Update $PATH for CSCI 509 with phil
+export PATH=$PATH:/home/phil/blitz
 
 # Clumsy aliases
 alias cs="cd"
