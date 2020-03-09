@@ -21,8 +21,10 @@ function pluginstall {
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
-# Update $PATH for CSCI 509 with phil
-export PATH=$PATH:/home/phil/blitz
+# Source research virtualenv
+function pyenv {
+    source /research/hutchinson/workspace/dawc/venv/bin/activate
+}
 
 # Clumsy aliases
 alias cs="cd"

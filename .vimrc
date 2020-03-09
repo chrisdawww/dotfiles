@@ -13,9 +13,10 @@ syntax on
 set rtp+=~/.fzf
 
 " 4 spaces for tabs
-"set tabstop=4
-"set shiftwidth=4
-"set expandtab
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
 
 " Show linenumbers
 set number
@@ -38,7 +39,7 @@ match ExtraWhitespace /\s\+$/
 let @w = ':%s/\s\+$//e'
 
 " Map kpl syntax higlight enable to <F1> for CSCI 509
-map <F1> :setf kpl<CR>:set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>
+map <F1> :setf kpl<CR>:set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>:set autoindent<CR>
 
 " Disable .swp and backup files
 set nobackup
