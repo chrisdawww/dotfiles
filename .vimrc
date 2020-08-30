@@ -38,9 +38,6 @@ match ExtraWhitespace /\s\+$/
 
 let @w = ':%s/\s\+$//e'
 
-" Map kpl syntax higlight enable to <F1> for CSCI 509
-map <F1> :setf kpl<CR>:set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>:set autoindent<CR>
-
 " Disable .swp and backup files
 set nobackup
 set nowritebackup
@@ -58,16 +55,53 @@ set smarttab
 
 let g:ale_python_pylint_options = '--rcfile ~/.dotfiles/.pylintrc'
 
+
+" __  __                   _
+"|  \/  | __ _ _ __  _ __ (_)_ __   __ _ ___
+"| |\/| |/ _` | '_ \| '_ \| | '_ \ / _` / __|
+"| |  | | (_| | |_) | |_) | | | | | (_| \__ \
+"|_|  |_|\__,_| .__/| .__/|_|_| |_|\__, |___/
+"             |_|   |_|            |___/
+" CAUTION: many mappings below
+mapclear
+
+" Leader :^)
+let mapleader = ','
+
+" Map kpl syntax higlight enable to <F1> for CSCI 509
+nnoremap <F1> :setf kpl<CR>:set shiftwidth=2<CR>:set tabstop=2<CR>:set expandtab<CR>:set autoindent<CR>
+
+" Open and source vimconfig mapping
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
+" Toggle paste mode
+nnoremap <leader>p :set paste!<CR>
+
+" Make space more useful
+nnoremap <space> zz
+
+" Toggle uppercase on word in normal and visual modes
+nnoremap <c-u> viwU
+vnoremap <c-u> iwU
+
+" Copy and paste one line below or above
+noremap - ddjP
+noremap _ ddkP
+
+" Abbreviations!
+iabbrev adn and
+
 " ____  _             _
 "|  _ \| |_   _  __ _(_)_ __  ___
 "| |_) | | | | |/ _` | | '_ \/ __|
 "|  __/| | |_| | (_| | | | | \__ \
 "|_|   |_|\__,_|\__, |_|_| |_|___/
                "|___/
-call plug#begin()
+"call plug#begin()
 
 "Plug 'scrooloose/nerdcommenter'
 "Plug 'dense-analysis/ale'
 "Plug 'yggdroot/indentline'
 
-call plug#end()
+"call plug#end()
